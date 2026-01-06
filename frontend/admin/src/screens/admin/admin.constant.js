@@ -15,4 +15,13 @@ const ADMIN_STATUS = {
   LOADING: "LOADING",
 };
 
-export { ADMIN_STORAGE_KEYS, ADMIN_ROUTES, ADMIN_STATUS };
+const ADMIN_URL_API_CALL = {
+  LOGIN_URL: "/auth/admin/login",
+  EXAMS_URL: "/admin/exams",
+  ANSWERS_URL: "/admin/answers",
+  QUIZZES_URL: "/admin/quizzes",
+  RESULTS_URL: "/admin/results",
+  STUDENTS_URL: "/admin/students",
+};
+
+export { ADMIN_STORAGE_KEYS, ADMIN_ROUTES, ADMIN_STATUS, ADMIN_URL_API_CALL };

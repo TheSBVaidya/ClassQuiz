@@ -6,6 +6,7 @@ import com.classquiz.domain.exam.dto.res.ExamTitleResDto;
 import com.classquiz.domain.exam.mapper.ExamHelperMapper;
 import com.classquiz.domain.exam.model.Exams;
 import com.classquiz.domain.exam.repository.ExamsRepository;
+import com.classquiz.domain.quiz.repository.QuizRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -74,6 +75,7 @@ public class ExamServiceImpl implements ExamService{
 
     @Override
     public void deleteExam(Long examId) {
+//        quizRepository.deleteAllByExams_Id(examId); //chiled delete
         examsRepository.deleteById(examId);
     }
 

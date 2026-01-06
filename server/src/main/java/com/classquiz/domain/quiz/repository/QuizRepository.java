@@ -1,6 +1,7 @@
 package com.classquiz.domain.quiz.repository;
 
 import com.classquiz.domain.quiz.model.Quiz;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -13,4 +14,7 @@ public interface QuizRepository extends JpaRepository<Quiz, Long> {
     List<Quiz> findRandomByExamId(@Param("examId") Long examsId);
 
     List<Quiz> findAllByExams_Id(Long examsId);
+
+    @Transactional
+    void deleteAllByExams_Id(Long examsId);
 }

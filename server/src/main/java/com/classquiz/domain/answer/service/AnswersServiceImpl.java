@@ -1,6 +1,5 @@
 package com.classquiz.domain.answer.service;
 
-import com.classquiz.domain.answer.dto.req.AnsweredQuizDto;
 import com.classquiz.domain.exam.model.Exams;
 import com.classquiz.domain.exam.repository.ExamsRepository;
 import com.classquiz.domain.quiz.model.Quiz;
@@ -125,9 +124,11 @@ public class AnswersServiceImpl implements AnswersService {
     }
 
     @Override
-    public List<Result> getAllAnsweredQuiz(AnsweredQuizDto answeredQuizDto) {
+    public List<Result> getAllAnsweredQuiz(Long examId, Long studentId) {
 
-        List<StudentAnswers> studentAnswers = studentAnswersRepository.findByStudent_IdAndExam_Id(answeredQuizDto.getStudentId(), answeredQuizDto.getExamId());
+        List<StudentAnswers> studentAnswers = studentAnswersRepository.findByStudent_IdAndExam_Id(studentId, examId);
+
+        System.out.println(studentAnswers);
 
         List<Result> resultList = new ArrayList<>();
         for (StudentAnswers sa : studentAnswers) {

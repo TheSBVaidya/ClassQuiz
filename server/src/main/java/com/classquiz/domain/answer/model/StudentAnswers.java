@@ -4,10 +4,13 @@ import com.classquiz.domain.student.model.Student;
 import com.classquiz.domain.exam.model.Exams;
 import com.classquiz.domain.quiz.model.Quiz;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "student_answers" , uniqueConstraints = {
         @UniqueConstraint(columnNames = {"student_id", "exam_id", "quiz_id"})

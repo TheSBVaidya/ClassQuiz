@@ -1,3 +1,4 @@
+import { ADMIN_URL_API_CALL } from "../screens/admin/admin.constant";
 import apiClient from "./axiosInstance";
 
 // const ipv4Api = () => {
@@ -7,47 +8,49 @@ import apiClient from "./axiosInstance";
 // };
 
 const loginApi = (payload) => {
-  return apiClient.post(`admin/login`, payload);
+  return apiClient.post(ADMIN_URL_API_CALL.LOGIN_URL, payload);
 };
 
 const createExamApi = (payload) => {
-  return apiClient.post("admin/exam/create", payload);
+  return apiClient.post(ADMIN_URL_API_CALL.EXAMS_URL, payload);
 };
 
 const examStartApi = (examId) => {
-  return apiClient.patch(`admin/exam/start/${examId}`);
+  return apiClient.patch(`${ADMIN_URL_API_CALL.EXAMS_URL}/${examId}/start`);
 };
 
 const examEndApi = (examId) => {
-  return apiClient.patch(`admin/exam/end/${examId}`);
+  return apiClient.patch(`${ADMIN_URL_API_CALL.EXAMS_URL}/${examId}/end`);
 };
 
 const examTitlesApi = () => {
-  return apiClient.get("admin/exam/titles");
+  return apiClient.get(`${ADMIN_URL_API_CALL.EXAMS_URL}/titles`);
 };
 
 const examStatusApi = (examId) => {
-  return apiClient.get(`admin/exam/status/${examId}`);
+  return apiClient.get(`${ADMIN_URL_API_CALL.EXAMS_URL}/${examId}/status`);
 };
 
 const addStudentApi = (payload) => {
-  return apiClient.post("/admin/student/add", payload);
+  return apiClient.post(`${ADMIN_URL_API_CALL.STUDENTS_URL}`, payload);
 };
 
 const getSchoolNameApi = () => {
-  return apiClient.get("/admin/student/schools");
+  return apiClient.get(`${ADMIN_URL_API_CALL.STUDENTS_URL}/schools`);
 };
 
 const getCurrentBatchApi = () => {
-  return apiClient.get("/admin/student/currentBatch");
+  return apiClient.get(
+    `${ADMIN_URL_API_CALL.STUDENTS_URL}/count/current-batch`
+  );
 };
 
 const getGivingExamApi = () => {
-  return apiClient.get("/admin/student/givingExam");
+  return apiClient.get(`${ADMIN_URL_API_CALL.STUDENTS_URL}/count/giving-exam`);
 };
 
 const getTotalStudentApi = () => {
-  return apiClient.get("/admin/student/totalCount");
+  return apiClient.get(`${ADMIN_URL_API_CALL.STUDENTS_URL}/count/total`);
 };
 
 const getAllStudentsApi = (
@@ -72,7 +75,9 @@ const getAllStudentsApi = (
   if (active !== null && active !== "all") {
     params.append("active", active);
   }
-  return apiClient.get(`/admin/student/all?${params.toString()}`);
+  return apiClient.get(
+    `${ADMIN_URL_API_CALL.STUDENTS_URL}?${params.toString()}`
+  );
 };
 
 const searchStudentsApi = (name, page = 0, size = 10, sort = "id,desc") => {
@@ -82,47 +87,69 @@ const searchStudentsApi = (name, page = 0, size = 10, sort = "id,desc") => {
   params.append("size", size);
   params.append("sort", sort);
 
-  return apiClient.get(`/admin/student/search?${params.toString()}`);
+  return apiClient.get(
+    `${ADMIN_URL_API_CALL.STUDENTS_URL}/search?${params.toString()}`
+  );
 };
 
 const addQuizApi = (payload) => {
-  return apiClient.post("/quiz/add", payload);
+  return apiClient.post(`${ADMIN_URL_API_CALL.QUIZZES_URL}`, payload);
 };
 
 const getAllStudentResultApi = (examTitle) => {
-  return apiClient.get(`/result/${examTitle}`);
+  return apiClient.get(`${ADMIN_URL_API_CALL.RESULTS_URL}`, {
+    params: {
+      examTitle: examTitle,
+    },
+  });
 };
 
 const getAllAnsweredQuizApi = (examId, studentId) => {
-  return apiClient.get(`/answer/givenQuiz/${examId}/${studentId}`);
+  return apiClient.get(`${ADMIN_URL_API_CALL.ANSWERS_URL}`, {
+    params: {
+      examId,
+      studentId,
+    },
+  });
 };
 
 const publishedResultApi = (ids, examTitle) => {
-  return apiClient.patch(`/result/publish/${ids}/${examTitle}`);
+  return apiClient.patch(`${ADMIN_URL_API_CALL.RESULTS_URL}/publish`, {
+    ids,
+    examTitle,
+  });
 };
 
 const fetchQuizApi = (examId) => {
-  return apiClient.get(`admin/quiz/${examId}`);
+  return apiClient.get(`${ADMIN_URL_API_CALL.QUIZZES_URL}/${examId}`);
 };
 
 const updateQuizApi = (payload) => {
-  return apiClient.put("admin/quiz/update", payload);
+  return apiClient.put(`${ADMIN_URL_API_CALL.QUIZZES_URL}`, payload);
 };
 
 const deleteExamApi = (examId) => {
-  return apiClient.delete(`/admin/exam/${examId}`);
+  return apiClient.delete(`${ADMIN_URL_API_CALL.EXAMS_URL}/${examId}`);
 };
 
 const updateStudentApi = (payload, studentId) => {
-  return apiClient.put(`/admin/student/update/${studentId}`, payload);
+  return apiClient.put(
+    `${ADMIN_URL_API_CALL.STUDENTS_URL}/${studentId}`,
+    payload
+  );
 };
 
 const toggleStudentApi = (studentId) => {
-  return apiClient.patch(`/admin/student/toggle/${studentId}`);
+  return apiClient.patch(
+    `${ADMIN_URL_API_CALL.STUDENTS_URL}/${studentId}/toggle`
+  );
 };
 
 const toggleActiveByDateApi = (payload) => {
-  return apiClient.patch("/admin/student/toggle-active-by-date", payload);
+  return apiClient.patch(
+    `${ADMIN_URL_API_CALL.STUDENTS_URL}/toggle-by-date`,
+    payload
+  );
 };
 
 export {

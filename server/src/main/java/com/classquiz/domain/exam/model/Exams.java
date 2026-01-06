@@ -2,14 +2,17 @@ package com.classquiz.domain.exam.model;
 
 import com.classquiz.domain.quiz.model.Quiz;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Entity
 public class Exams {
 
@@ -37,11 +40,7 @@ public class Exams {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @OneToMany(
-            mappedBy = "exams",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+    @OneToMany(mappedBy = "exams")
     private List<Quiz> quizzes = new ArrayList<>();
 
 

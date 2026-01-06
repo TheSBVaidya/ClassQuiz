@@ -9,4 +9,13 @@ const STUDENT_ROUTES = {
   PROFILE: "/student/profile",
 };
 
-export { STUDENT_ROUTES, STUDENT_STORAGE_KEYS };
+const STUDENT_URL_API_CALL = {
+  LOGIN_URL: "/auth/student/login",
+  EXAMS_URL: "/student/exams",
+  ANSWERS_URL: "/student/answers",
+  QUIZZES_URL: "/student/quizzes",
+  RESULTS_URL: "/student/results",
+  STUDENTS_URL: "/students",
+};
+
+export { STUDENT_ROUTES, STUDENT_STORAGE_KEYS, STUDENT_URL_API_CALL };

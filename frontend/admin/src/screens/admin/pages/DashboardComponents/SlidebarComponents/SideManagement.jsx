@@ -73,7 +73,7 @@ const Management = () => {
   const handleDeleteExam = async () => {
     if (!selectedExamId) return toast.error("Please select an exam first.");
     toast.warning("Are you sure..", {
-      action: { label: "Yes", onClick: () => deleteExam() },
+      action: { label: "Yes", onClick: () => deleteExam(selectedExamId) },
       cancel: { label: "No" },
     });
     setSelectedExamId("");

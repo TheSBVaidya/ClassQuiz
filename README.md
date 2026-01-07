@@ -22,7 +22,7 @@ The **teacher’s PC acts as the server**, and students connect using the **same
 
 |                  **Admin Dashboard**                  |                   **Student Dashboard**                   |
 | :---------------------------------------------------: | :-------------------------------------------------------: |
-| ![Admin Dashboard]("docs/screens/AdminDashboard.png") | ![Student Dashboard]("docs/screens/StudentDashboard.png") |
+| ![Admin Dashboard](docs/screens/AdminDashboard.png) | ![Student Dashboard](docs/screens/StudentDashboard.png) |
 |         _Manage exams, students, and results_         |           _Join live exams and submit answers_            |
 
 ---

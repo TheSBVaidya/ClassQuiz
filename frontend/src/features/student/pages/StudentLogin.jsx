@@ -6,8 +6,8 @@ import useStudent from "../hooks/studentHooks";
 const StudentLogin = () => {
   const { studentLogin } = useStudent();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("STU7575979");
-  const [password, setPassword] = useState("6JM0KYCO");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {

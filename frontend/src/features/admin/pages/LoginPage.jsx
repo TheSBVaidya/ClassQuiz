@@ -3,8 +3,8 @@ import useAdmin from "../hooks/adminHooks";
 
 const LoginPage = () => {
   const { authStatus, login } = useAdmin();
-  const [email, setEmail] = useState("sanjay");
-  const [password, setPassword] = useState("Sanjay@180");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSignIn = () => {
     login(email, password);
